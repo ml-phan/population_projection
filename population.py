@@ -64,7 +64,7 @@ def growth_percentage(df):
                     )
         ax.grid(axis="x")
         ax.set_title(f"Projected population growth in the period 2022-2070 with variation {variation}",
-                     fontsize=20)
+                     fontsize=25)
         ax.set_xlabel("Population ratio of the year 2070 / the year 2022 in percentage", fontsize=15)
         ax.set_xticks(range(0, round(max(dataframe["Growth"] + 10)), 10), fontsize=15)
         ax.tick_params(axis='both', which='major', labelsize=15)
@@ -90,9 +90,9 @@ def growth_percentage(df):
                "These graphs indicate that the range of population change are very different between all\n" \
                "German states."
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
-    axes.flat[5].text(0, -0.3, answer_2,
+    axes.flat[5].text(0, -0.1, answer_2,
                       # transform=axes.flat[5].transAxes,
-                      fontsize=20,
+                      fontsize=16,
                       # verticalalignment='top',
                       bbox=props,
                       wrap=True)
@@ -101,7 +101,7 @@ def growth_percentage(df):
                       "in other words a 10% decline in 50 years.",
                       fontsize=15,
                       style='italic')
-    fig.tight_layout(rect=[0, 0, 0.97, 0.98])
+    fig.tight_layout(rect=[0, 0.01, 0.97, 0.98])
     plt.show()
     fig.savefig("02_growth_percentage.png", dpi=160)
 
@@ -229,14 +229,19 @@ def east_west(df: dict[str, pd.DataFrame]):
                       # verticalalignment='top',
                       bbox=props,
                       wrap=True)
-    fig.tight_layout(rect=[0, 0.03, 1, 0.95])
+    axes.flat[5].text(0, -0.4,
+                      "*A value of 90 means that the population in 2070 is 90% that in 2022,"
+                      "in other words a 10% decline in 50 years.",
+                      fontsize=15,
+                      style='italic')
+    fig.tight_layout(rect=[0, 0.01, 0.97, 0.98])
     plt.show()
     fig.savefig(f"05_east_west.png", dpi=160)
 
 
 def urban_vs_rural(df):
-    urban = ["Berlin", "Hamburg", "Bayern", "Nordrhein-Westfalen", "Hesse"
-             "Baden-Württemburg", "Sachsen", "Bremen", "Niedersachsen"]
+    urban = ["Berlin", "Hamburg", "Bayern", "Nordrhein-Westfalen", "Hessen",
+             "Baden-Württemberg", "Sachsen", "Bremen", "Niedersachsen"]
     fig, axes = plt.subplots(nrows=3, ncols=2, figsize=(30, 20), dpi=40)
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     for index, (variation, dataframe) in enumerate(df.items()):
@@ -264,16 +269,14 @@ def urban_vs_rural(df):
         text_box_display(ax, variation)
     answer_6 = "Question 6: Do states with larger cities have different population projection compared\n" \
                "more rural states?\n\n" \
-               "In a notable pattern, the states that previously constituted East Germany, Brandenburg\n" \
-               "Sachsen, Sachsen-Anhalt and Thüringen, all underperform in comparison to their West\n" \
-               "Germany counterparts. These states are projected to experience no population growth\n" \
-               "over the forthcoming five decades, even under the most favourable scenarios.\n\n" \
-               "A majority of the former West Germany states illustrate markedly superior performance\n" \
-               "relative to those from East Germany. Exceptions to this are Saarland and Mecklenburg-\n" \
-               "Vorpommen, albeit their projected growth still surpasses that of Thüringen and Sachsen-\n" \
-               "Anhalt.\n\n" \
-               "Berlin is excluded from this analysis owing to its historical partition between East and\n" \
-               "West Germany."
+               "Using a population threshold of 500,000, we have categorized the states into two\n" \
+               "classifications: 'Urban' and 'Rural'. 'Urban' states are characterized by having at\n" \
+               "least one city with a population exceeding 500,000, while 'Rural' states do not have\n" \
+               "such large urban centers.\n\n" \
+               "Our graphs reveals a trend favoring 'Urban' states, showing their potential advantages\n" \
+               "in term of population growth when contrasted with 'Rural' states.\n\n" \
+               "The bottom four states have no city with a population larger than 250,000, while the top\n" \
+               "seven are all states that have at least one city with a population larger than 500,000."
     axes.flat[5].axis("off")
     axes.flat[5].text(0, -0.1, answer_6,
                       # transform=axes.flat[5].transAxes,
@@ -281,7 +284,12 @@ def urban_vs_rural(df):
                       # verticalalignment='top',
                       bbox=props,
                       wrap=True)
-    fig.tight_layout(rect=[0, 0.03, 1, 0.95])
+    axes.flat[5].text(0, -0.4,
+                      "*A value of 90 means that the population in 2070 is 90% that in 2022,"
+                      "in other words a 10% decline in 50 years.",
+                      fontsize=15,
+                      style='italic')
+    fig.tight_layout(rect=[0, 0.01, 0.97, 0.98])
     plt.show()
     fig.savefig(f"06_urban_rural.png", dpi=160)
 
