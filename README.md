@@ -15,7 +15,9 @@ The dataset is obtained from **Genesis online Portal** under the number 12421-00
 
 ## Usage
 `python population.py --question {1,2,3,4,5,6}`
-Select question from 1 to 6. The result will be displayed and saved in an image file.
+
+Select questions using the positional argument `--question`. Acceptable options are one number in [1,2,3,4,5,6].
+The result will be displayed and saved to an image file.
 
 ## Contact
 phan@uni-potsdam.de
