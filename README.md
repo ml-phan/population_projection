@@ -1,23 +1,21 @@
-### Research Project: Population growth projection of all German states
+# Research Project: Population growth projection of all German states
+This is the codebase for the individual project of the course Research Software Engineering 2023
 
-MIT License
 
-Copyright (c) 2023 Manh Linh Phan
+## Data
+The dataset is obtained from **Genesis online Portal** under the number 12421-0003. The link is procedurally created everytime so you will have to look it manually look it up using the dataset number in their main website.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+### Research questions:
+1. How does the variation in birthrate,life expectancy and immigration across different German states influence their respective projected population growth?
+1. 
+1. Are there specific states that have consistently shown higher growth in projected population figures?
+1. 
+1. Conversely, are there specific states that have shown a consistent decline or stagnation in their projected population figures?
+1. 
+1. How will the dynamic between the most and least populous states change over the next five decades?
+1. 
+1. How do the population projections of the former East and West Germany compare over the next five decades?
+1. 
+1. Do states with larger cities have different population projection patterns compared to more rural states?
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
