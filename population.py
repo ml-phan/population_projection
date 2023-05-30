@@ -1,8 +1,6 @@
 import argparse
 import sys
-
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -55,7 +53,7 @@ def overall_trend(df: dict[str, pd.DataFrame]):
                "population growth in the next five decades"
     display_answer(axes.flat[5], answer_1)
     fig.tight_layout(rect=[0, 0.03, 1, 0.95])
-    fig.savefig("01_overall_trend.png", dpi=160)
+    fig.savefig(r"results\01_overall_trend.png", dpi=160)
     plt.show()
 
 
@@ -98,7 +96,7 @@ def growth_percentage(df):
     display_answer(axes.flat[5], answer_2, 16)
     display_footnote(axes.flat[5])
     fig.tight_layout(rect=[0, 0.01, 0.97, 0.98])
-    fig.savefig("02_growth_percentage.png", dpi=160)
+    fig.savefig(r"results\02_growth_percentage.png", dpi=160)
     plt.show()
 
 
@@ -147,7 +145,7 @@ def biggest_smallest(df: dict[str, pd.DataFrame]):
                "population dynamics between the two states under the same conditions."
     display_answer(axes.flat[5], answer_4)
     fig.tight_layout(rect=[0, 0.03, 1, 0.95])
-    fig.savefig("03_biggest_smallest.png", dpi=160)
+    fig.savefig(r"results\03_biggest_smallest.png", dpi=160)
     plt.show()
 
 
@@ -194,7 +192,7 @@ def east_west(df: dict[str, pd.DataFrame]):
     display_answer(axes.flat[5], answer_5)
     display_footnote(axes.flat[5])
     fig.tight_layout(rect=[0, 0.01, 0.97, 0.98])
-    fig.savefig(f"05_east_west.png", dpi=160)
+    fig.savefig(r"results\05_east_west.png", dpi=160)
     plt.show()
 
 
@@ -241,11 +239,18 @@ def urban_vs_rural(df):
     display_answer(axes.flat[5], answer_6)
     display_footnote(axes.flat[5])
     fig.tight_layout(rect=[0, 0.01, 0.97, 0.98])
-    fig.savefig(f"06_urban_rural.png", dpi=160)
+    fig.savefig(r"results\06_urban_rural.png", dpi=160)
     plt.show()
 
 
 def text_box_display(axe, var, pos=(0, -0.15)):
+    """
+    Display variation legend on each chart of a subplot
+    :param axe: the ax of the subplot
+    :param var: the specific projected variation displayed in the chart
+    :param pos: position of the text box. Default (0, -0.15)
+    :return: None
+    """
     birth_rate = ""
     life_expectancy = ""
     immigration = ""
@@ -274,6 +279,13 @@ def text_box_display(axe, var, pos=(0, -0.15)):
 
 
 def display_answer(ax, text, fontsize=18):
+    """
+    Display text box with answer to the research question.
+    :param ax: The ax on which to display the text box containing the answer.
+    :param text: The answer to the research question to be displayed.
+    :param fontsize: Font size of the answer. Default: 18. Smaller is recommended for longer answer
+    :return: None
+    """
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     ax.axis("off")
     ax.text(0, -0.1, text,
@@ -283,6 +295,11 @@ def display_answer(ax, text, fontsize=18):
 
 
 def display_footnote(ax):
+    """
+    Display footnote, explaining the percentage of the charts.
+    :param ax: The ax on which the footnote will be displayed.
+    :return: None
+    """
     ax.text(0, -0.4,
             "*A value of 90 means that the population in 2070 is 90% that in 2022,"
             "in other words a 10% decline in 50 years.",
@@ -291,6 +308,13 @@ def display_footnote(ax):
 
 
 def graph_annotation(ax, variation, dataframe):
+    """
+    Customized the annotation of the bar charts
+    :param ax: The ax of the chart
+    :param variation: The specific projected variation displayed in the chart
+    :param dataframe: The DataFrame containing data
+    :return: None
+    """
     ax.set_title(f"Projected population growth in the period 2022-2070 with variation {variation}",
                  fontsize=25)
     ax.set_xlabel("Population ratio of the year 2070 / the year 2022 in percentage", fontsize=15)
@@ -302,19 +326,27 @@ def graph_annotation(ax, variation, dataframe):
 
 
 def main():
+    # Load data using data_loader function
     projections = data_loader(DATA_PATH)
+
+    # Set style for all seaborn charts
     sns.set_style("dark")
 
+    # Add ArgumentParser
     parser = argparse.ArgumentParser("Research on German states' population growth")
     parser.add_argument("--question", dest="question", type=int, required=True,
-                        choices=[1, 2, 3, 4, 5],
+                        choices=[1, 2, 3, 4, 5, 6],
                         help="Enter question number")
+
+    # If there is no argument given when the script is run, display the parser's help message
     if len(sys.argv) == 1:
         parser.print_help()
         sys.exit()
 
     args = parser.parse_args()
 
+    # Run appropriate function depends on the selected question
+    # Else print the parser's help message when input is not in range of [1,2,3,4,5,6]
     if args.question == 1:
         overall_trend(projections)
     elif args.question in [2, 3]:
