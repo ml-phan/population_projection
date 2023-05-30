@@ -1,5 +1,15 @@
 # Research Project: Population growth projection of all German states
-This is the codebase for the individual project of the course Research Software Engineering 2023
+This is the codebase for the individual project of the course Research Software Engineering 2023.
+The project observed projected population growth based of different factors:
+- G1: Birth rate 1.44 children per woman.
+- G2: Birth rate 1.55 children per woman.
+- G3: Birth rate 1.7 children per woman.
+- L1: Life expectancy in 2070: 82.6 for men and 86.1 for women.
+- L1: Life expectancy in 2070: 84.6 for men and 88.2 for women.
+- L1: Life expectancy in 2070: 86.4 for men and 90.1 for women.
+- W1: Immigration decreases from 1.1 million in 2022 to 150,000 in 2033, constant thereafter.
+- W1: Immigration decreases from 1.3 million in 2022 to 250,000 in 2033, constant thereafter.
+- W1: Immigration decreases from 1.5 million in 2022 to 350,000 in 2033, constant thereafter.
 
 
 ## Data
