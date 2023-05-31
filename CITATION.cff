@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Popuplation projections
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Manh Linh
+    family-names: Phan
+    email: phan@uni-potsdam.de
+    affiliation: University Potsdam
+repository-code: 'https://gitup.uni-potsdam.de/phan/rse23'
+abstract: >-
+  The project observed projected population growth based of
+  different factors: Birth rate, Life expectancy and
+  Immigration rate.
+keywords:
+  - Research Software
+license: MIT
+commit: 5cd2ca05c5dadefcca065aab9c747a2dfe003741
+version: '1.0'
