@@ -42,7 +42,7 @@ or the short form
 `python population.py ..\data\12421-0003.xlsx --q {1,2,3,4,5,6}`
 
 Select questions using the positional argument `--question` or `--qn`. Acceptable options are one number in [1,2,3,4,5,6].
-The result will be displayed and saved to an image file.
+The result will be displayed and saved to an image file in `results` folder.
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
