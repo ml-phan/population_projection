@@ -1,6 +1,5 @@
 # Research Project: Population growth projection of all German states
-This is the codebase for the individual project of the course Research Software Engineering 2023.
-The project observed projected population growth based of different factors:
+This project aims to investigate the dynamics of population growth or decline in all German states when taking into accounts the three factors: Birth rate, life expectancy, and immigration rate, with all variants detailed as follow:
 - G1: Birth rate 1.44 children per woman.
 - G2: Birth rate 1.55 children per woman.
 - G3: Birth rate 1.7 children per woman.
@@ -15,7 +14,7 @@ The project observed projected population growth based of different factors:
 ## Data
 The dataset is obtained from **Genesis online Portal**: https://www-genesis.destatis.de/genesis/online/data?operation=sprachwechsel&language=en. 
 
-The link is randomly generated so you will have to manually look it up using the dataset number _12421-0003_ in their main website.
+The link is randomly generated so you will have to manually look it up using the dataset ID: _12421-0003_ in their main website.
 
 ## Research questions:
 1. How does the variation in birthrate,life expectancy and immigration across different German states influence their respective projected population growth?
