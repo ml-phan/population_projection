@@ -111,7 +111,7 @@ def growth_percentage(df):
                "These graphs indicate that the range of population changes " \
                "are very different between all\n" \
                "German states."
-    display_answer(axes.flat[5], answer_2, 16)
+    display_answer(axes.flat[5], answer_2, 15)
     display_footnote(axes.flat[5])
     fig.tight_layout(rect=[0, 0.01, 0.97, 0.98])
     fig.savefig(OUTPUT_PATH / "02_growth_percentage.png", dpi=160)
