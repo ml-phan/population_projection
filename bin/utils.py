@@ -1,3 +1,28 @@
+#!/usr/bin/python3
+import pandas as pd
+
+
+def data_loader(path):
+    """
+    Read the data from file and split the data into a dictionary of dataframe
+
+    :param path: relative path to data file.
+    :return: a dictionary of dataframe, each dataframe contains one variation
+    of the population projection.
+    """
+    df = pd.read_csv(path)
+    df = df.rename(columns={df.columns[0]: "States"})
+    df.columns = [col[:4] if "States" not in col else "States" for col in
+                  df.columns]
+
+    df_list = {}
+    for index, value in enumerate(df["States"]):
+        if "BEV" in value:
+            df_list[value[-7:-1]] = df[index + 1:index + 17]
+            df_list[value[-7:-1]].set_index("States", inplace=True)
+
+    return df_list
+
 def text_box_display(axe, var, pos=(0, -0.15)):
     """
     Display variation legend on each chart of a subplot

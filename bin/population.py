@@ -1,34 +1,13 @@
+#!/usr/bin/python3
+
 import argparse
 from pathlib import Path
 import sys
-import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from utils import *
 
 OUTPUT_PATH = Path.cwd().parent / "results"
-
-
-def data_loader(path):
-    """
-    Read the data from file and split the data into a dictionary of dataframe
-
-    :param path: relative path to data file.
-    :return: a dictionary of dataframe, each dataframe contains one variation
-    of the population projection.
-    """
-    df = pd.read_excel(path)
-    df = df.rename(columns={df.columns[0]: "States"})
-    df.columns = [col[:4] if "States" not in col else "States" for col in
-                  df.columns]
-
-    df_list = {}
-    for index, value in enumerate(df["States"]):
-        if "BEV" in value:
-            df_list[value[-7:-1]] = df[index + 1:index + 17]
-            df_list[value[-7:-1]].set_index("States", inplace=True)
-
-    return df_list
 
 
 def overall_trend(df: dict[str, pd.DataFrame]):
@@ -86,32 +65,30 @@ def growth_percentage(df):
         graph_annotation(ax, variation, dataframe2)
         text_box_display(ax, variation)
     answer_2 = "Question 2: Are there specific states that have consistently" \
-               " shown higher growth in\nprojected population figures?\n\n" \
+               " shown higher growth in projected population\nfigures?\n\n" \
                "The graphs clearly illustrate that Berlin stands alone as " \
-               "the only state projected\nto experience positive population " \
-               "growth across all scenarios, ranging from 100-130%.\n" \
-               "Hamburg ranks as the second-strongest performer, only " \
-               "projecting negative growth in\n" \
+               "the only state projected to experience positive \npopulation" \
+               " growth across all scenarios, ranging from 100-130%. Hamburg" \
+               " ranks as the second-strongest\nperformer, only " \
+               "projecting negative growth in " \
                "the most pessimistic of scenarios.\n\n" \
                "Question 3: Conversely, are there specific states that have" \
-               " shown a consistent decline\n" \
-               "or stagnation in their projected population figures?\n\n" \
+               " shown a consistent decline or stagnation in\n" \
+               "their projected population figures?\n\n" \
                "Sachsen-Anhalt exhibits the most concerning performance " \
-               "among the states, with a\n" \
-               "projected population contraction of 20 to 30%, regardless " \
-               "of scenarios. Thüringen, while\n" \
-               "marginally outperforming Sachsen-Anhalt, is expected to see " \
-               "a decline that is roughly \n" \
-               "2-3% less severe.\n\n" \
+               "among the states, with a projected population \n" \
+               "contraction of 20 to 30%, regardless of scenarios. " \
+               "Thüringen, while marginally outperforming " \
+               "Sachsen\n-Anhalt, is expected to see " \
+               "a decline that is roughly 2-3% less severe.\n\n" \
                "States positioned in the median range, such as " \
-               "Niedersachsen, Rheinland-Pfalz,Schleswig-\n" \
-               "Holstein, and Nordrhein-Westfalen, are anticipated to " \
-               "main a relatively stable population,\n" \
-               "hovering around 90-110% depending on the scenarios.\n" \
+               "Niedersachsen, Rheinland-Pfalz,Schleswig-Holstein, and\n" \
+               "Nordrhein-Westfalen, are anticipated to maintain a " \
+               "relatively stable population, hovering around 90-\n110% " \
+               "depending on the scenarios.\n" \
                "These graphs indicate that the range of population changes " \
-               "are very different between all\n" \
-               "German states."
-    display_answer(axes.flat[5], answer_2, 15)
+               "are very different between all German states."
+    display_answer(axes.flat[5], answer_2, 18)
     display_footnote(axes.flat[5])
     fig.tight_layout(rect=[0, 0.01, 0.97, 0.98])
     fig.savefig(OUTPUT_PATH / "02_growth_percentage.png", dpi=160)
