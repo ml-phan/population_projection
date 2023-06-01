@@ -25,11 +25,23 @@ The link is randomly generated so you will have to manually look it up using the
 1. How do the population projections of the former East and West Germany compare over the next five decades?
 1. Do states with larger cities have different population projection patterns compared to more rural states?
 
-## Usage
-`python population.py --question {1,2,3,4,5,6}`
+## Installation Instructions
+Requirements:
+1. Python 3.8
+1. Pandas and Seaborn library
+    `pip install pandas`
+    `pip install seaborn`
 
-Select questions using the positional argument `--question`. Acceptable options are one number in [1,2,3,4,5,6].
+## Usage
+Simply run the python script and provide input data and question number to be answered
+`python population.py ..\data\12421-0003.xlsx --question {1,2,3,4,5,6}`
+or the short form 
+`python population.py ..\data\12421-0003.xlsx --q {1,2,3,4,5,6}`
+Select questions using the positional argument `--question` or `--qn`. Acceptable options are one number in [1,2,3,4,5,6].
 The result will be displayed and saved to an image file.
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Contact
 phan@uni-potsdam.de
